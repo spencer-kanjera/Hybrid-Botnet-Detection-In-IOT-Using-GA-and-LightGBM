@@ -6,7 +6,28 @@ from sklearn.model_selection import cross_val_score
 import numpy as np
 
 # Load the dataset
-df = pd.read_csv('C:\\VS code projects\\data_files\\Wednesday-workingHours.pcap_ISCX.csv')
+file_paths = [
+    "C:/VS code projects/data_files/Monday-WorkingHours.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Tuesday-WorkingHours.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Wednesday-workingHours.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Friday-WorkingHours-Morning.pcap_ISCX.csv"
+]
+
+
+
+# Read and clean datasets
+dataframes = []
+for file_path in file_paths:
+    df = pd.read_csv(file_path)
+    df.columns = df.columns.str.strip()  # Remove whitespace from column names
+    dataframes.append(df)
+
+# Combine all datasets into a single DataFrame
+df = pd.concat(dataframes, ignore_index=True)
 
 print("Preprocessing dataset...")
 df.dropna(inplace=True)  # Remove missing values
@@ -70,11 +91,11 @@ def objective(trial):
 
     # Evaluate the selected features
     selected_features = [i for i, bit in enumerate(best_individual) if bit == 1]
-    if len(selected_features) == 0:  # Handle cases where no features are selected
+    if len(selected_features) == 0:  
         return 0.0
     score = evaluate_model(selected_features)
 
-    return score  # Optuna will maximize this score
+    return score  e
 
 # Run the optimization
 study = optuna.create_study(direction="maximize")

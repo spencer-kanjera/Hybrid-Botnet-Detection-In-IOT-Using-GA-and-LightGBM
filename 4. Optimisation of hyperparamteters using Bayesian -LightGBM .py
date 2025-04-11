@@ -6,26 +6,28 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
 # Load the local dataset
-print("Loading dataset...")
-df_monday = pd.read_csv("C:/VS code projects/data_files/Monday-WorkingHours.pcap_ISCX.csv")
-df_tuesday = pd.read_csv("C:/VS code projects/data_files/Tuesday-WorkingHours.pcap_ISCX.csv")
-df_wednesday = pd.read_csv("C:/VS code projects/data_files/Wednesday-workingHours.pcap_ISCX.csv")
-df_thursday_afternoon = pd.read_csv("C:/VS code projects/data_files/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv")
-df_thursday_morning= pd.read_csv("C:/VS code projects/data_files/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv")
-df_friday_afternoon_ddos = pd.read_csv("C:/VS code projects/data_files/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv")
-df_friday_afternoon_portscan = pd.read_csv("C:/VS code projects/data_files/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv")
-df_friday_morning = pd.read_csv("C:/VS code projects/data_files/Friday-WorkingHours-Morning.pcap_ISCX.csv")
-df_monday.columns = df_monday.columns.str.strip()
-df_tuesday.columns = df_tuesday.columns.str.strip()
-df_wednesday.columns = df_wednesday.columns.str.strip()
-df_thursday_afternoon.columns = df_thursday_afternoon.columns.str.strip()
-df_thursday_morning.columns = df_thursday_morning.columns.str.strip()
-df_friday_afternoon_ddos.columns = df_friday_afternoon_ddos.columns.str.strip()
-df_friday_afternoon_portscan.columns = df_friday_afternoon_portscan.columns.str.strip()
-df_friday_morning.columns = df_friday_morning.columns.str.strip()
+file_paths = [
+    "C:/VS code projects/data_files/Monday-WorkingHours.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Tuesday-WorkingHours.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Wednesday-workingHours.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+    "C:/VS code projects/data_files/Friday-WorkingHours-Morning.pcap_ISCX.csv"
+]
 
-df = pd.concat([df_monday,df_tuesday,df_wednesday, df_thursday_afternoon, df_thursday_morning, df_friday_afternoon_ddos, df_friday_afternoon_portscan, df_friday_morning], ignore_index=True)
-df['Label'] = df['Label'].apply(lambda x: 1 if x == 'BENIGN' else 0)
+
+
+# Read and clean datasets
+dataframes = []
+for file_path in file_paths:
+    df = pd.read_csv(file_path)
+    df.columns = df.columns.str.strip()  # Remove whitespace from column names
+    dataframes.append(df)
+
+# Combine all datasets into a single DataFrame
+df = pd.concat(dataframes, ignore_index=True)df['Label'] = df['Label'].apply(lambda x: 1 if x == 'BENIGN' else 0)
 
 # Find the minimum class count
 min_count = df['Label'].value_counts().min()
