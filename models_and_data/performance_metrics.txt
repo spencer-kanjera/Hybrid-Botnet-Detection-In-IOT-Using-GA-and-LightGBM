@@ -1,0 +1,56 @@
+Performance Metrics:
+Average Accuracy: 0.9959232297266579
+Average Precision: 0.9959282310801703
+Average Recall: 0.9959232297266579
+Average F1 Score: 0.9959232230680379
+
+Confusion Matrix (Summed Across Folds):
+[[288416   1625]
+ [   740 289335]]
+
+Results for Each Fold:
+Fold 1:
+  Accuracy: 0.9955871199062263
+  Precision: 0.9955933998341946
+  Recall: 0.9955871199062263
+  F1 Score: 0.9955871213918758
+  Confusion Matrix:
+[[57767   359]
+ [  153 57745]]
+
+Fold 2:
+  Accuracy: 0.9959318411004715
+  Precision: 0.9959331913920312
+  Recall: 0.9959318411004715
+  F1 Score: 0.9959318343986221
+  Confusion Matrix:
+[[57660   284]
+ [  188 57891]]
+
+Fold 3:
+  Accuracy: 0.995664652698172
+  Precision: 0.9956738418127152
+  Recall: 0.995664652698172
+  F1 Score: 0.9956646613589956
+  Confusion Matrix:
+[[57814   376]
+ [  127 57706]]
+
+Fold 4:
+  Accuracy: 0.9958887461968747
+  Precision: 0.9958926635091048
+  Recall: 0.9958887461968747
+  F1 Score: 0.9958887392273627
+  Confusion Matrix:
+[[57703   320]
+ [  157 57843]]
+
+Fold 5:
+  Accuracy: 0.9965437887315446
+  Precision: 0.9965480588528058
+  Recall: 0.9965437887315446
+  F1 Score: 0.9965437589633337
+  Confusion Matrix:
+[[57472   286]
+ [  115 58150]]
+
