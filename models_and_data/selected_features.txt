@@ -1,0 +1,7 @@
+Selected Features from Genetic Algorithm
+
+Total Features Selected: 2 out of 11
+
+Feature List:
+1. pkSeqID
+2. drate

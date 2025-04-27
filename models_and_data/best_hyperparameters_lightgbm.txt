@@ -1,0 +1,15 @@
+Best Hyperparameters:
+learning_rate: 0.01990086265614642
+num_leaves: 65
+max_depth: 7
+min_child_samples: 40
+subsample: 0.6971404971190901
+colsample_bytree: 0.8912957047621014
+reg_alpha: 1.1077475757773147e-05
+reg_lambda: 7.505137036788418
+n_estimators: 386
+feature_fraction: 0.6749863286377266
+bagging_fraction: 0.8742278952008886
+min_child_weight: 13
+
+Best Accuracy: 1.0000

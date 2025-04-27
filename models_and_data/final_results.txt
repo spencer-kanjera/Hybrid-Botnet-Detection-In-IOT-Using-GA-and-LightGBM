@@ -1,0 +1,21 @@
+GA-LightGBM Results
+
+Selected Features:
+1. pkSeqID
+2. drate
+
+Cross-Validation Results:
+Average Accuracy: 0.9992
+Average Precision: 0.9992
+Average Recall: 0.9992
+Average F1: 0.9992
+
+Test Set Results:
+Accuracy: 1.0000
+Precision: 1.0000
+Recall: 1.0000
+F1: 1.0000
+
+Confusion Matrix:
+[[   108      0]
+ [     1 733596]]
