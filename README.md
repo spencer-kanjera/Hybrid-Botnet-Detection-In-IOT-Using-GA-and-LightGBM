@@ -37,8 +37,8 @@ Hybrid-Botnet-Detection-Using-GA-and-LightGBM/
 ├── data_files/
 │   ├── bot_iot/            # CSV files for Bot-IoT dataset
 │   └── ton_iot/            # CSV files for ToN_IoT dataset
-├── 2.IDS_GA_LightGBM_SingleModal copy.ipynb   # Primary notebook with pipeline implementation
-├── 2.IDS_GA_LightGBM_SingleModal.ipynb         # Alternative version or additional experiments
+├── 2.IDS_GA_LightGBM_SingleModal.ipynb   # Primary notebook with pipeline implementation
+├
 └── model_export_cell7/
     ├── ids_lightgbm_final_model.pkl
     ├── scaler_final_model.pkl
